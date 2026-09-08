@@ -1,0 +1,154 @@
+hotel folder delete karo
+
+!rm -rf /content/hotels
+!mkdir /content/hotels
+
+---------
+Zip Folder Delete
+
+!rm -rf /content/upscaled
+!rm -f /content/upscaled.zip
+!mkdir /content/upscaled
+
+-----------------
+
+2. Naya hotels.zip upload karo
+
+Left sidebar → Files → /content → Upload → hotels.zip
+
+!pip install -q realesrgan
+
+-----------------
+
+3. Extract ZIP
+
+!unzip -q /content/hotels.zip -d /content/
+
+
+!pip install -U --force-reinstall torchvision==0.20.1 torch==2.5.1
+
+-----------------
+
+3. Wahi final cell dubara chalao
+
+import os
+import cv2
+from glob import glob
+
+INPUT_ROOT = "/content/hotels"
+OUTPUT_ROOT = "/content/upscaled"
+
+os.makedirs(OUTPUT_ROOT, exist_ok=True)
+
+for hotel in os.listdir(INPUT_ROOT):
+
+    hotel_path = os.path.join(INPUT_ROOT, hotel)
+
+    if not os.path.isdir(hotel_path):
+        continue
+
+    out_folder = os.path.join(OUTPUT_ROOT, hotel)
+    os.makedirs(out_folder, exist_ok=True)
+
+    files = []
+    for ext in ("*.jpg","*.jpeg","*.png","*.webp","*.avif"):
+        files.extend(glob(os.path.join(hotel_path, ext)))
+
+    print(f"{hotel}: {len(files)} images")
+
+    for f in files:
+
+        img = cv2.imread(f, cv2.IMREAD_UNCHANGED)
+
+        if img is None:
+            continue
+
+        output, _ = upsampler.enhance(img, outscale=2)
+
+        if len(output.shape) == 3 and output.shape[2] == 4:
+            output = cv2.cvtColor(output, cv2.COLOR_BGRA2BGR)
+
+        name = os.path.splitext(os.path.basename(f))[0]
+
+        cv2.imwrite(
+            os.path.join(out_folder, name + ".jpg"),
+            output,
+            [cv2.IMWRITE_JPEG_QUALITY,95]
+        )
+
+print("DONE")
+
+----------
+
+
+Zip File 
+
+!zip -r /content/upscaled.zip /content/upscaled
+
+--------
+force zip
+
+from google.colab import files
+files.download("/content/upscaled.zip")
+
+
+-----------------****************************************************//////////////**********
+
+kaggle "::
+
+
+import os
+import shutil
+import cv2
+from glob import glob
+
+shutil.rmtree("/kaggle/working/upscaled", ignore_errors=True)
+os.makedirs("/kaggle/working/upscaled", exist_ok=True)
+
+INPUT_ROOT = "/kaggle/input/datasets/syed93/hotel1"
+OUTPUT_ROOT = "/kaggle/working/upscaled"
+
+for hotel in sorted(os.listdir(INPUT_ROOT), key=lambda x: int(x) if x.isdigit() else 999):
+
+    hotel_path = os.path.join(INPUT_ROOT, hotel)
+
+    if not os.path.isdir(hotel_path):
+        continue
+
+    out_folder = os.path.join(OUTPUT_ROOT, hotel)
+    os.makedirs(out_folder, exist_ok=True)
+
+    files = []
+    for ext in ("*.jpg","*.jpeg","*.png","*.webp","*.avif"):
+        files.extend(glob(os.path.join(hotel_path, ext)))
+
+    print(f"{hotel}: {len(files)} images")
+
+    for f in files:
+
+        img = cv2.imread(f, cv2.IMREAD_UNCHANGED)
+
+        if img is None:
+            continue
+
+        output, _ = upsampler.enhance(img, outscale=4)
+
+        if len(output.shape) == 3 and output.shape[2] == 4:
+            output = cv2.cvtColor(output, cv2.COLOR_BGRA2BGR)
+
+        name = os.path.splitext(os.path.basename(f))[0]
+
+        cv2.imwrite(
+            os.path.join(out_folder, name + ".jpg"),
+            output,
+            [cv2.IMWRITE_JPEG_QUALITY,95]
+        )
+
+print("✅ DONE")
+
+
+------------
+zip
+
+!rm -f /kaggle/working/upscaled.zip
+!zip -r /kaggle/working/upscaled.zip /kaggle/working/upscaled

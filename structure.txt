@@ -1,0 +1,91 @@
+Folder PATH listing for volume One Touch
+Volume serial number is 60E7-EEDB
+D:.
+³   main.py
+³   config.py
+³   requirements.txt
+³   .env
+³   test_pipeline.py
+³   test_duration.py
+³   structure.txt
+³   
+ÃÄÄÄassets
+ÃÄÄÄinput
+³   ³   voice.mp3
+³   ³   
+³   ÀÄÄÄimages
+³           15.png
+³           1.png
+³           2.png
+³           3.png
+³           4.png
+³           5.png
+³           6.png
+³           7.png
+³           8.png
+³           9.png
+³           10.png
+³           11.png
+³           12.png
+³           13.png
+³           14.png
+³           16.png
+³           17.png
+³           18.png
+³           
+ÃÄÄÄcache
+³   ÃÄÄÄenhanced
+³   ÃÄÄÄstock
+³   ³       38080353.mp4
+³   ³       857172.mp4
+³   ³       15445873.mp4
+³   ³       
+³   ÀÄÄÄtemp
+ÃÄÄÄoutput
+³   ³   old final_video.mp4
+³   ³   3 final_video.mp4
+³   ³   final_video.mp4
+³   ³   
+³   ÀÄÄÄtemp
+³           0000.mp4
+³           0001.mp4
+³           0002.mp4
+³           0003.mp4
+³           0004.mp4
+³           0005.mp4
+³           0006.mp4
+³           0007.mp4
+³           0008.mp4
+³           0009.mp4
+³           0010.mp4
+³           0011.mp4
+³           concat.txt
+³           
+ÃÄÄÄsrc
+³   ³   utils.py
+³   ³   transcript.py
+³   ³   image_matcher.py
+³   ³   pexels_api.py
+³   ³   clip_creator.py
+³   ³   timeline_builder.py
+³   ³   renderer.py
+³   ³   image_builder.py
+³   ³   video_builder.py
+³   ³   camera.py
+³   ³   backup camera - Copy.py
+³   ³   
+³   ÀÄÄÄ__pycache__
+³           utils.cpython-314.pyc
+³           clip_creator.cpython-314.pyc
+³           video_builder.cpython-314.pyc
+³           image_builder.cpython-314.pyc
+³           transcript.cpython-314.pyc
+³           pexels_api.cpython-314.pyc
+³           renderer.cpython-314.pyc
+³           timeline_builder.cpython-314.pyc
+³           image_matcher.cpython-314.pyc
+³           camera.cpython-314.pyc
+³           
+ÀÄÄÄ__pycache__
+        config.cpython-314.pyc
+        

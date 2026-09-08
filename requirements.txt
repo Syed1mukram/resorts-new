@@ -1,0 +1,14 @@
+torch
+torchvision
+open-clip-torch
+faster-whisper
+moviepy
+opencv-python-headless
+numpy
+Pillow
+tqdm
+huggingface_hub
+transformers
+sentencepiece
+safetensors
+requests
