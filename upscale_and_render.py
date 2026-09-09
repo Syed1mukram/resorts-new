@@ -17,6 +17,17 @@ IMAGES_ROOT = INPUT_DIR / "images"
 OUTPUT_DIR = BASE_DIR / "output"
 
 MODEL_PATH = BASE_DIR / "RealESRGAN_x4plus.pth"
+
+MODEL_URL = "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth"
+
+if not MODEL_PATH.exists():
+    print("Downloading Real-ESRGAN x4 model...")
+    subprocess.run(
+        ["wget", "-q", MODEL_URL, "-O", str(MODEL_PATH)],
+        check=True
+    )
+    print("Real-ESRGAN model downloaded.")
+
 UPSCALED_ROOT = BASE_DIR / "cache" / "upscaled"
 OVERLAY_ROOT = BASE_DIR / "cache" / "stock_overlay"
 
